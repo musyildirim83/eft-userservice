@@ -9,7 +9,6 @@ import io.dropwizard.auth.AuthValueFactoryProvider;
 import io.dropwizard.auth.basic.BasicCredentialAuthFilter;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.hibernate.HibernateBundle;
-import io.dropwizard.migrations.MigrationsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import tr.com.eft.odev.userservice.api.AuthUser;
@@ -36,13 +35,6 @@ public class UserApplication extends Application<UserConfiguration> {
 		}
 	};
 
-	private final MigrationsBundle<UserConfiguration> migrationBundle = new MigrationsBundle<UserConfiguration>() {
-		@Override
-		public DataSourceFactory getDataSourceFactory(UserConfiguration configuration) {
-			return configuration.getDataSourceFactory();
-		}
-	};
-
 	@Override
 	public String getName() {
 		return "userservice";
@@ -51,7 +43,6 @@ public class UserApplication extends Application<UserConfiguration> {
 	@Override
 	public void initialize(Bootstrap<UserConfiguration> bootstrap) {
 		bootstrap.addBundle(hibernateBundle);
-		bootstrap.addBundle(migrationBundle);
 	}
 
 	@Override

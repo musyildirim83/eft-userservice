@@ -20,7 +20,7 @@ import io.dropwizard.jersey.params.LongParam;
 import tr.com.eft.odev.userservice.api.User;
 import tr.com.eft.odev.userservice.repository.UserDAO;
 
-@Path("/userservice/user")
+@Path("/userservice/users")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserResource {
@@ -58,11 +58,10 @@ public class UserResource {
 	@Path("/{userId}")
 	@UnitOfWork
 	public User updateUser(@PathParam("userId") LongParam userId, @Valid User user) {
-		// User user2 = findSafely(userId.get());
-		// user2.setFullName(user.getFullName());
-		// user2.setJobTitle(user.getJobTitle());
-		user.setId(userId.get());
-		return userDAO.update(user);
+		User updatedUser = findSafely(userId.get());
+		updatedUser.setFullName(user.getFullName());
+		updatedUser.setJobTitle(user.getJobTitle());
+		return userDAO.update(updatedUser);
 	}
 
 	@DELETE

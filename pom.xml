@@ -45,10 +45,6 @@
 		</dependency>
 		<dependency>
 			<groupId>io.dropwizard</groupId>
-			<artifactId>dropwizard-migrations</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.dropwizard</groupId>
 			<artifactId>dropwizard-testing</artifactId>
 			<scope>test</scope>
 		</dependency>
@@ -100,7 +96,7 @@
 									implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>tr.com.eft.odev.userservice.Application</mainClass>
+									<mainClass>tr.com.eft.odev.userservice.UserApplication</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>

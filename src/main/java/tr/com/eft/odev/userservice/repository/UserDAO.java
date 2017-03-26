@@ -22,10 +22,7 @@ public class UserDAO extends AbstractDAO<User> {
 	}
 
 	public User update(User user) {
-		System.out.println("asedf");
-		currentSession().merge(user);
-		currentSession().evict(user);
-		return new User();
+		return persist(user);
 	}
 
 	public void delete(User user) {

@@ -1,0 +1,1 @@
+CREATE TABLE USERS(id int auto_increment primary key, fullName varchar(255), jobTitle varchar(255), luc INTEGER NOT NULL);

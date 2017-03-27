@@ -5,11 +5,11 @@ Build and package the example app:
 
     mvn package
 
-start the service:
+Start the service:
 
     java -jar target/userservice.jar server conf/local/config.yml 
     
-urls:
+Urls:
     
     GET     /userservice/users
     POST    /userservice/users
@@ -17,3 +17,7 @@ urls:
     GET     /userservice/users/{userId} 
     PUT     /userservice/users/{userId}
 
+Basic Authantication:
+
+	Username: mustafa
+	Password: secret

@@ -74,4 +74,47 @@ public class User implements Serializable {
 	public void setVersion(int version) {
 		this.version = version;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", fullName=" + fullName + ", jobTitle=" + jobTitle + ", version=" + version + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((fullName == null) ? 0 : fullName.hashCode());
+		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((jobTitle == null) ? 0 : jobTitle.hashCode());
+		result = prime * result + version;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (fullName == null) {
+			if (other.fullName != null)
+				return false;
+		} else if (!fullName.equals(other.fullName))
+			return false;
+		if (id != other.id)
+			return false;
+		if (jobTitle == null) {
+			if (other.jobTitle != null)
+				return false;
+		} else if (!jobTitle.equals(other.jobTitle))
+			return false;
+		if (version != other.version)
+			return false;
+		return true;
+	}
+
 }

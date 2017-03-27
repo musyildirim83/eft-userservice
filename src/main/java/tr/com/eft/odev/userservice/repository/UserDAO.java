@@ -1,7 +1,6 @@
 package tr.com.eft.odev.userservice.repository;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.hibernate.SessionFactory;
 
@@ -13,8 +12,8 @@ public class UserDAO extends AbstractDAO<User> {
 		super(factory);
 	}
 
-	public Optional<User> findById(Long id) {
-		return Optional.ofNullable(get(id));
+	public User findById(Long id) {
+		return get(id);
 	}
 
 	public User create(User user) {
